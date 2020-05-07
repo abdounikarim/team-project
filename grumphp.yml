@@ -35,6 +35,11 @@ parameters:
             ignore_patterns: ['/^tests/']
             triggered_by: ['php']
             memory_limit: "-1"
+        phpunitbridge:
+            config_file: ~
+            testsuite: ~
+            group: []
+            always_execute: false
         phpversion:
             project: '7.3'
         securitychecker:
