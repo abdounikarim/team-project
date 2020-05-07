@@ -8,3 +8,6 @@ parameters:
             no_local_repository: false
             with_dependencies: false
             strict: false
+
+        phpversion:
+            project: '7.3'
