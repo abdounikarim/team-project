@@ -14,4 +14,20 @@ class FrontController extends AbstractController
     {
         return $this->render('front/index.html.twig');
     }
+
+    /**
+     * @Route("/follow", name="follow")
+     */
+    public function followPage()
+    {
+        return $this->render('front/follow.html.twig');
+    }
+
+    /**
+     * @Route("/feed", name="link_page")
+     */
+    public function displayLinkPage()
+    {
+        return $this->render('front/feed.html.twig');
+    }
 }
