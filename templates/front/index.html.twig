@@ -16,13 +16,10 @@
 
     <a href="{{ path('follow') }}"><button type="button" class="btn btn-success">Commencer a suivre des domaines</button></a>
     
-
      {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
     {% endfor %}
-
-
 </div>
 {% endblock %}
