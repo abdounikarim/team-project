@@ -19,6 +19,15 @@
             </div>
     {% endfor %}
 
+    <h2> Suivre une catégorie :</h2>
+    {{ form_start(formCategory) }}
+        {{ form_row(formCategory.name) }}
+        <br/>
+        <button type="submit" class="btn btn-success">Ajouter une catégorie a mon catalogue</button>
+    {{ form_end(formCategory) }}
+
+    <br/><br/>
+    <h2> Mes catégories suivi</h2>
 
 </div>
 {% endblock %}
