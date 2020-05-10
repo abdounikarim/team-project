@@ -49,8 +49,6 @@ class FrontController extends AbstractController
      */
     public function displayLinkPage()
     {
-        return $this->render('front/feed.html.twig',[
-
-        ]);
+        return $this->render('front/feed.html.twig');
     }
 }
