@@ -2,9 +2,9 @@
 
 namespace App\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Entity\Category;
 
-class CategoryControllerTest extends WebTestCase
+class CategoryControllerTest extends BaseController
 {
     public function testGetCollectionCategory()
     {
@@ -18,7 +18,10 @@ class CategoryControllerTest extends WebTestCase
     public function testGetItemCategory()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/category/1');
+        $categories = $this->getCategory()->findAll();
+        /** @var Category $category */
+        $category = $categories[0];
+        $crawler = $client->request('GET', '/category/'.$category->getId());
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Category');
