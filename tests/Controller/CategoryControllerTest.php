@@ -24,7 +24,7 @@ class CategoryControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Category');
     }
 
-    public function testPostCollectionCategory()
+    public function testPostCollectionCategoryWithIncorrectData()
     {
         $client = static::createClient();
         $client->request('GET', '/category/new');
@@ -33,7 +33,22 @@ class CategoryControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Create new Category');
 
         $crawler = $client->submitForm('Save', [
-            'category[name]' => 'python',
+            'category[name]' => '',
+        ]);
+        $this->assertResponseIsSuccessful();
+        $this->assertEquals('/category/new', $client->getRequest()->getRequestUri());
+    }
+
+    public function testPostCollectionCategoryWithValidData()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/category/new');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('h1', 'Create new Category');
+
+        $crawler = $client->submitForm('Save', [
+            'category[name]' => 'python-'.rand(1, 10000),
         ]);
 
         $this->assertResponseRedirects('/category/');
