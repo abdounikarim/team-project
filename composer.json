@@ -33,8 +33,10 @@
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsoftwig/twigcs": "v4.0-BETA4",
         "phpro/grumphp": "^0.18.0",
+        "phpstan/phpstan": "^0.12.25",
         "sensiolabs/security-checker": "^6.0",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
