@@ -23,4 +23,13 @@ class CategoryControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Category');
     }
+
+    public function testPostCollectionCategory()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/category/new');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('h1', 'Create new Category');
+    }
 }
