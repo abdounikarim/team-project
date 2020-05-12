@@ -33,7 +33,7 @@ class CategoryControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Create new Category');
 
         $crawler = $client->submitForm('Save', [
-            'category[name]' => 'php',
+            'category[name]' => 'python',
         ]);
 
         $this->assertResponseRedirects('/category/');
