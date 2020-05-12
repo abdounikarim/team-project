@@ -25,7 +25,7 @@ class Category
      * @Assert\NotBlank()
      */
     private $name;
-
+  
     public function getId(): ?int
     {
         return $this->id;
