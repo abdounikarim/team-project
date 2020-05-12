@@ -56,4 +56,15 @@ class CategoryControllerTest extends BaseController
 
         $this->assertResponseRedirects('/category/');
     }
+
+    public function testPutItemCategoryWithValidData()
+    {
+        $client = static::createClient();
+        $categories = $this->getCategory()->findAll();
+        /** @var Category $category */
+        $category = $categories[0];
+        $crawler = $client->request('GET', '/category/'.$category->getId().'/edit');
+
+        $this->assertResponseIsSuccessful();
+    }
 }
