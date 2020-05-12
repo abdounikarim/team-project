@@ -32,7 +32,7 @@ parameters:
             configuration: ~
             level: 0
             force_patterns: []
-            ignore_patterns: ['/^tests/']
+            ignore_patterns: ['/^tests/', 'src/Migrations']
             triggered_by: ['php']
             memory_limit: "-1"
         phpunitbridge:
