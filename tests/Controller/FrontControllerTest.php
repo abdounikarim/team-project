@@ -1,17 +1,32 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FrontControllerTest extends WebTestCase
 {
-    public function testSomething()
+    public function testHomePage()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Hello World');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testFollowTechnologiesPage()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/follow');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testFeedPage()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/feed');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }

@@ -10,16 +10,24 @@
 
 <div class="container">
     <br/><br/>
-    <h1>Team project</h1>
-    <p> Ce projet permet de suivre des catégories ( domaine ou technologie ). Commencez donc par suivre des domaines en fonction de vos centre 
-    d'interet, puis obtenez des information les concernant..</p>
+    <h1>Suivre des projets, des domaines, des technologie...</h1>
+    <p> Rechercher un domaine et ajouter le a vos centre d'interet</p>
 
-    <a href="{{ path('follow') }}"><button type="button" class="btn btn-success">Commencer a suivre des domaines</button></a>
-    
      {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
     {% endfor %}
+
+    <h2> Suivre une catégorie :</h2>
+    {{ form_start(formCategory) }}
+        {{ form_row(formCategory.name) }}
+        <br/>
+        <button type="submit" class="btn btn-success">Ajouter une catégorie a mon catalogue</button>
+    {{ form_end(formCategory) }}
+
+    <br/><br/>
+    <h2> Mes catégories suivi</h2>
+
 </div>
 {% endblock %}
