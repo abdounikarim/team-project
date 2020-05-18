@@ -10,9 +10,6 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
-
-    role_hierarchy: [ROLE_ADMIN, ROLE_USER]
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -22,7 +19,7 @@ security:
             provider: app_user_provider
             guard:
                 authenticators:
-                    - App\Security\LoginFormAuthenticator
+                    - App\Security\AppLoginAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
