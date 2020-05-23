@@ -3,6 +3,8 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
+<br/><br/>
+<div class="container">
     <h1>Category index</h1>
 
     <table class="table">
@@ -17,10 +19,12 @@
         {% for category in categories %}
             <tr>
                 <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
+                <td><strong>{{ category.name }}</strong></td>
                 <td>
                     <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -31,5 +35,9 @@
         </tbody>
     </table>
 
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('category_new') }}">Create new</a>
+    {% endif %}
+
+</div>
 {% endblock %}
