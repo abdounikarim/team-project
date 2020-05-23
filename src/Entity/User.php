@@ -30,23 +30,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="user")
-     */
-    private $categories;
-
-    public function __construct()
-    {
-        $this->categories = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -124,36 +114,5 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-            $category->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->categories->contains($category)) {
-            $this->categories->removeElement($category);
-            // set the owning side to null (unless already changed)
-            if ($category->getUser() === $this) {
-                $category->setUser(null);
-            }
-        }
-
-        return $this;
     }
 }
