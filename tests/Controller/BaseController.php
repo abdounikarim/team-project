@@ -19,4 +19,11 @@ class BaseController extends WebTestCase
     {
         return $this->getEntityManager()->getRepository(Category::class);
     }
+
+    public function login($user,$pass) {
+        return static::createClient([], [
+            'PHP_AUTH_USER' => $user,
+            'PHP_AUTH_PW' => $pass,
+        ]);
+    }
 }
