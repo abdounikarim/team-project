@@ -14,7 +14,7 @@ class LinkType extends AbstractType
         $builder
             ->add('description')
             ->add('link')
-            //->add('category')
+            ->add('category')
         ;
     }
 
