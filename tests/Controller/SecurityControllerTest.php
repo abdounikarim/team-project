@@ -1,18 +1,11 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class SecurityControllerTest extends WebTestCase
+class SecurityControllerTest extends BaseController
 {
-    public function login($user,$pass) {
-        return static::createClient([], [
-            'PHP_AUTH_USER' => $user,
-            'PHP_AUTH_PW' => $pass,
-        ]);
-    }
-
     public function testRegister()
     {
         $client = static::createClient();

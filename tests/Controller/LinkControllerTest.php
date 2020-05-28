@@ -8,10 +8,9 @@ class LinkControllerTest extends BaseController
 {
     public function testGetCollectionLink()
     {
-        $client = static::createClient();
+        $client = $this->login('Paul0505@gmail.com','000000') ;
         $crawler = $client->request('GET', '/link/');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Link index');
+        $this->assertResponseRedirects();
     }
 }
