@@ -8,7 +8,7 @@ class CategoryControllerTest extends BaseController
 {
     public function testGetCollectionCategory()
     {
-        $client = static::createClient();
+        $client = $this->login('Paul0505@gmail.com','000000');
         $crawler = $client->request('GET', '/category/');
 
         $this->assertResponseIsSuccessful();
@@ -17,7 +17,7 @@ class CategoryControllerTest extends BaseController
 
     public function testGetItemCategory()
     {
-        $client = static::createClient();
+        $client = $this->login('Paul0505@gmail.com','000000') ;
         $categories = $this->getCategory()->findAll();
         /** @var Category $category */
         $category = $categories[0];
@@ -29,7 +29,7 @@ class CategoryControllerTest extends BaseController
 
     public function testPostCollectionCategoryWithIncorrectData()
     {
-        $client = static::createClient();
+        $client = $this->login('Paul0505@gmail.com','000000') ;
         $client->request('GET', '/category/new');
 
         $this->assertResponseIsSuccessful();
@@ -44,7 +44,7 @@ class CategoryControllerTest extends BaseController
 
     public function testPostCollectionCategoryWithValidData()
     {
-        $client = static::createClient();
+        $client = $this->login('Paul0505@gmail.com','000000') ;
         $client->request('GET', '/category/new');
 
         $this->assertResponseIsSuccessful();
